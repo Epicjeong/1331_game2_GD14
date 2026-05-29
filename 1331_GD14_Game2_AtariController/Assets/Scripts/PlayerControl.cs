@@ -1,10 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerControl : MonoBehaviour
 {
     //direction to face
     private Vector2 _direction;
+
+    //Projectile aim and throw
+    [SerializeField] private GameObject _target;
+    [SerializeField] private ProjectileWeapon _weapon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,5 +31,19 @@ public class PlayerControl : MonoBehaviour
         var targetAngle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
         transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+    }
+
+    public void Aim(InputAction.CallbackContext context)
+    {
+        _target.SetActive(true);
+        if (context.canceled)
+        {
+            _target.SetActive(false);
+            if (_weapon.CanFire)
+            {
+                _weapon.Fire(_target.transform.position);
+            }
+        }
+
     }
 }
