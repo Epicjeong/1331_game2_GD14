@@ -5,6 +5,8 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _speed = 20;
     [SerializeField] private float _lifetime = 5f;
+    [SerializeField] private Food _foodType;
+
     #region Particle
     [SerializeField] private GameObject _particles;
 
