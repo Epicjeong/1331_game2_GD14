@@ -34,6 +34,7 @@ public class PlayerControl : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
     }
 
+    //While the aim button is held, shows an outline of the direction the food will be thrown and fires once its let go
     public void Aim(InputAction.CallbackContext context)
     {
         _target.SetActive(true);

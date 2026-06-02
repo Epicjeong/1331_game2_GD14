@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class CustomerScript : MonoBehaviour
@@ -8,13 +8,21 @@ public class CustomerScript : MonoBehaviour
 
     //From public enum named "Food"
     [SerializeField] private Food _foodState;
+    [SerializeField] private Projectile _projectile;
 
-    private void Start()
+    private void Awake()
     {
         //randomly picks from public enum
         _foodState = (Food)Random.Range(0, System.Enum.GetValues(typeof(Food)).Length);
 
         //Debug print what food it's chosen
         Debug.Log(_foodState);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //foods not done yet, uncomment later
+        //if (_foodState == _projectile._foodType)
+            Destroy(gameObject);
     }
 }

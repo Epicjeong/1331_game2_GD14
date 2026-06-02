@@ -1,14 +1,16 @@
+
 using UnityEngine;
 
 public class ProjectileWeapon : MonoBehaviour
 {
-    [SerializeField] private Projectile _projectilePrefab;
+    [SerializeField] private Projectile[] _projectilePrefab;
     [SerializeField] private Transform _muzzle;
     [SerializeField] private float _fireRate = 1f;
 
     private float _nextFireTime;
     public bool CanFire => Time.time >= _nextFireTime;
 
+    //gives the foods direction
     public void Fire(Vector3 targetPosition)
     {
         if (!CanFire) return;
@@ -17,9 +19,12 @@ public class ProjectileWeapon : MonoBehaviour
         SpawnProjectile(direction);
     }
 
+    //creates the prefab of the food
     public void SpawnProjectile(Vector3 direction)
     {
-        var projectile = Instantiate(_projectilePrefab, _muzzle.position, Quaternion.LookRotation(direction));
+        int foodType = Random.Range(0, _projectilePrefab.Length);
+
+        var projectile = Instantiate(_projectilePrefab[foodType], _muzzle.position, Quaternion.LookRotation(direction));
         projectile.Launch(direction, gameObject);
     }
 }
