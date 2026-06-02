@@ -28,6 +28,7 @@ public class PlayerControl : MonoBehaviour
     {
         _direction = context.ReadValue<Vector2>();
         if (_direction == Vector2.zero) return;
+
         var targetAngle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
         transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
