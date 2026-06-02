@@ -5,6 +5,11 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _speed = 20;
     [SerializeField] private float _lifetime = 5f;
+
+    //public enum "Food" for what type of food it is
+    //Needs something to randomize, or create prefabs for all types of food.
+    [SerializeField] private Food _foodType;
+
     #region Particle
     [SerializeField] private GameObject _particles;
 
