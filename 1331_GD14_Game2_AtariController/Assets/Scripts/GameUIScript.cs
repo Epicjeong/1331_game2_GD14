@@ -7,6 +7,12 @@ public class GameUIScript : MonoBehaviour
 {
     [SerializeField] private Image _timerFill;
 
+    [SerializeField] private 
+
+    int playerScore;
+
+    string scoreText;
+
     private void UpdateTimeBar()
     {
         
