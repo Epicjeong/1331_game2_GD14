@@ -7,8 +7,8 @@ public class CustomerScript : MonoBehaviour
     private bool _waiting;
 
     //From public enum named "Food"
-    [SerializeField] private Food _foodState;
-    [SerializeField] private Projectile _projectile;
+    public Food _foodState;
+    //[SerializeField] private Projectile _projectile;
 
     private void Awake()
     {
@@ -19,10 +19,9 @@ public class CustomerScript : MonoBehaviour
         Debug.Log(_foodState);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void Served()
     {
-        //Only goes through if food recieved is what customer wanted
-        if (_foodState == _projectile._foodType)
-            Destroy(gameObject);
+
+        Destroy(gameObject);
     }
 }

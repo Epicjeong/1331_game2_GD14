@@ -21,6 +21,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private PlayerControl _player;
     private PlayerInput _playerInput;
 
+    //Spawn manager to spawn customers when the game starts
+    [SerializeField] private SpawnManager _spawnManager;
+
     private void Start()
     {
         _startMenuUI.SetActive(true);
@@ -77,6 +80,8 @@ public class GameManager : Singleton<GameManager>
         //Changes input map to "Player"
         _playerInput.actions.FindActionMap("Menu").Disable();
         _playerInput.actions.FindActionMap("Player").Enable();
+
+        _spawnManager.SpawnCustomer();
 
         //starts timer
         _timerActive = true;
