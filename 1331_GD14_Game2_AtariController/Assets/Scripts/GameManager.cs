@@ -81,6 +81,7 @@ public class GameManager : Singleton<GameManager>
         _playerInput.actions.FindActionMap("Menu").Disable();
         _playerInput.actions.FindActionMap("Player").Enable();
 
+        //Spawns customers when game begins
         _spawnManager.SpawnCustomer();
 
         //starts timer
