@@ -1,8 +1,12 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-//didn't use this, might remove...
 public class Timer : MonoBehaviour
 {
+
+    private float _timer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

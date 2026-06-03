@@ -5,10 +5,12 @@ using UnityEngine;
 //Can expand to include more features if there's time
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] public float _timer;
-    [SerializeField] public float _maxTimer = 60.0f;
 
-    [SerializeField] public int _score = 0;
+    //note to yi: if the variables public it doesnt need to be serialized
+    public float _timer;
+    public float _maxTimer = 60.0f;
+
+    public int _score = 0;
 
     //checks if timer should be on or not
     [SerializeField] private bool _timerActive = false;

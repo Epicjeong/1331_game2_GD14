@@ -21,8 +21,8 @@ public class CustomerScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //foods not done yet, uncomment later
-        //if (_foodState == _projectile._foodType)
+        //Only goes through if food recieved is what customer wanted
+        if (_foodState == _projectile._foodType)
             Destroy(gameObject);
     }
 }
