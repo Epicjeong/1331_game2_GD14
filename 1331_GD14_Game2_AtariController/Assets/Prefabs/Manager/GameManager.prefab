@@ -50,3 +50,5 @@ MonoBehaviour:
   _score: 0
   _timerActive: 0
   _gameUI: {fileID: 1619043597417454614, guid: 8f0db551abcecfc46ac08e3e333ec5bd, type: 3}
+  _startMenuUI: {fileID: 4385011381914067146, guid: 0831a4e7e33578d4c8aa64ec5770c87f, type: 3}
+  _highScore: 0

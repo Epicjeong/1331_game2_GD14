@@ -20,6 +20,7 @@ public class GameUI : MonoBehaviour
     private void Update()
     {    
         UpdateTime();
+        UpdateScoreNumber();
     }
 
     public void UpdateTime()
@@ -29,15 +30,16 @@ public class GameUI : MonoBehaviour
 
         //updates the timer bar (timer/maxtimer = percentage of time left = fill amount)
         _timerBarFill.fillAmount = (GameManager.Instance._timer / GameManager.Instance._maxTimer);
+
         //updates the timer text (shown number on UI)
         _timerNumberText.text = _timerString;
     }
 
     public void UpdateScoreNumber()
     {
-        //turns int and float into string for text
+        //turns int/float into string for text
         _scoreString = GameManager.Instance._score.ToString();
 
-        _scoreNumberText.text = _timerString;
+        _scoreNumberText.text = _scoreString;
     }
 }
