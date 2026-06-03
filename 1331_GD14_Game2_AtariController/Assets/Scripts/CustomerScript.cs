@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class CustomerScript : MonoBehaviour
 {
-    //Bool to see if they are wait for food or not
-    private bool _waiting;
+    //stores spawn manager to set spawn location to unoccupied
+    [SerializeField] private SpawnManager _spawnManager;
 
     //From public enum named "Food"
     public Food _foodState;
-    //[SerializeField] private Projectile _projectile;
+
+    //which spawn the customer was created at
+    private int _tableNumber;
 
     private void Awake()
     {
@@ -19,9 +21,16 @@ public class CustomerScript : MonoBehaviour
         Debug.Log(_foodState);
     }
 
+    public int SetTableNumber(int spawnLocation)
+    {
+        _tableNumber = spawnLocation;
+        return _tableNumber;
+    }
+
     public void Served()
     {
-
+        _spawnManager._occupiedSpawn.Remove(_tableNumber);
+        _spawnManager.SpawnCustomer();
         Destroy(gameObject);
     }
 }

@@ -38,6 +38,7 @@ public class Projectile : MonoBehaviour
             if (customer._foodState == _foodType)
             {
                 customer.Served();
+                Debug.Log("jsdg");
                 Destroy(gameObject);
             }
         }
