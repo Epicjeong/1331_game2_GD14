@@ -6,22 +6,11 @@ using UnityEngine.InputSystem;
 //This should track the score and the timer for the game at the minimum
 public class GameManager : Singleton<GameManager>
 {
-<<<<<<< HEAD
-
-    //note to yi: if the variables public it doesnt need to be serialized
-    public float _timer;
-    public float _maxTimer = 60.0f;
-
-    public int _score = 0;
-
     //checks if timer should be on or not
-=======
     public float _timer {  get; private set; }
     public float _maxTimer;
     public int _score {  get; private set; }
     public int _highScore { get; private set; }
-
->>>>>>> b79b7186f5beae56fd6ab777475bb74e884de653
     [SerializeField] private bool _timerActive = false;
 
     //UI prefabs
