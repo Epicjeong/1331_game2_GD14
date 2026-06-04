@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    //Array of spawn locations
-    public Transform[] _customerSpawnLocation;
+    //
+    [SerializeField] private GameManager _gameManager;
     //Array of customer prefabs
     [SerializeField] private GameObject[] _customer;
+    //Array of spawn locations
+    public Transform[] _customerSpawnLocation;
     //list of spawn locations occupied
     public List<int> _occupiedSpawn;
 
@@ -34,6 +36,7 @@ public class SpawnManager : MonoBehaviour
     public void UnoccupySeat(int tableNumber)
     {
         _occupiedSpawn.Remove(tableNumber);
+        _gameManager.ScoreAdd();
     }
 
 }
