@@ -14,11 +14,6 @@ public class SpawnManager : MonoBehaviour
     private int _minCustomersSpawned = 1;
     private int _maxCustomersSpawned = 3;
 
-    private void Awake()
-    {
-        
-    }
-
     public void SpawnCustomer()
     {
         int customerAmount = Random.Range(_minCustomersSpawned, _maxCustomersSpawned);
