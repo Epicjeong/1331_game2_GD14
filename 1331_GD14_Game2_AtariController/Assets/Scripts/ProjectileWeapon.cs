@@ -24,7 +24,7 @@ public class ProjectileWeapon : MonoBehaviour
     {
         int foodType = Random.Range(0, _projectilePrefab.Length);
 
-        var projectile = Instantiate(_projectilePrefab[foodType], _muzzle.position, Quaternion.LookRotation(direction), _muzzle);
+        var projectile = Instantiate(_projectilePrefab[foodType], _muzzle.position, Quaternion.LookRotation(direction));
         projectile.Launch(direction, gameObject);
     }
 }
