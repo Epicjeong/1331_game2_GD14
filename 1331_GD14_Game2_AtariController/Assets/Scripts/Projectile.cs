@@ -27,11 +27,22 @@ public class Projectile : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision other)
     {
-        if (collision.gameObject == _source) return;
+        if (other.gameObject == _source) return;
         //SpawnImpact(collision.contacts[0].point);
-        Destroy(gameObject);
+
+        var customer = other.gameObject.GetComponent<CustomerScript>();
+        Debug.Log(customer);
+        if (customer != null)
+        {
+        Debug.Log(customer._foodState);
+            if (customer._foodState == _foodType)
+            {
+                customer.Served();
+                Destroy(gameObject);
+            }
+        }
     }
 
     public void Launch(Vector3 direction, GameObject source)

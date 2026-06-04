@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 //This should track the score and the timer for the game at the minimum
 public class GameManager : Singleton<GameManager>
 {
+    //checks if timer should be on or not
     public float _timer {  get; private set; }
     public float _maxTimer;
     public int _score {  get; private set; }
     public int _highScore { get; private set; }
-
     [SerializeField] private bool _timerActive = false;
 
     //UI prefabs
@@ -20,6 +20,9 @@ public class GameManager : Singleton<GameManager>
     //Why did i do this
     [SerializeField] private PlayerControl _player;
     private PlayerInput _playerInput;
+
+    //Spawn manager to spawn customers when the game starts
+    [SerializeField] private SpawnManager _spawnManager;
 
     private void Start()
     {
@@ -77,6 +80,9 @@ public class GameManager : Singleton<GameManager>
         //Changes input map to "Player"
         _playerInput.actions.FindActionMap("Menu").Disable();
         _playerInput.actions.FindActionMap("Player").Enable();
+
+        //Spawns customers when game begins
+        _spawnManager.SpawnCustomer();
 
         //starts timer
         _timerActive = true;

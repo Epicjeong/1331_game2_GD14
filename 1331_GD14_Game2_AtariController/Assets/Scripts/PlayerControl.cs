@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     //direction to face
     private Vector2 _direction;
+    //[SerializeField] private float smoothTime = 0.05f;
 
     //Projectile aim and throw
     [SerializeField] private GameObject _target;
