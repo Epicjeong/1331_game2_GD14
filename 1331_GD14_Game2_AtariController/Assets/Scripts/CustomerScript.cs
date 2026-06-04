@@ -24,6 +24,7 @@ public class CustomerScript : MonoBehaviour
     public int SetTableNumber(int spawnLocation)
     {
         _tableNumber = spawnLocation;
+        Debug.Log(_tableNumber);
         return _tableNumber;
     }
 

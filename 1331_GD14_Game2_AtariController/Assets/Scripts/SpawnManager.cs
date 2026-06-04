@@ -20,16 +20,17 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnCustomer()
     {
-        int customerAmount = Random.Range(0, _maxCustomersSpawned);
+        int customerAmount = Random.Range(1, _maxCustomersSpawned);
         for (int i = 0;  i < customerAmount; i++)
         {
             int randomCustomer = Random.Range(0, _customer.Length);
             int randomSpawn = Random.Range(0, _customerSpawnLocation.Length);
-            if (_occupiedSpawn.Contains(randomSpawn))
+            if (!_occupiedSpawn.Contains(randomSpawn))
             {
                 var customer = Instantiate(_customer[randomCustomer], _customerSpawnLocation[randomSpawn]);
                 customer.GetComponent<CustomerScript>().SetTableNumber(randomSpawn);
-                _occupiedSpawn.Add(randomCustomer);
+                Debug.Log(randomSpawn);
+                _occupiedSpawn.Add(randomSpawn);
             }
         }
         
