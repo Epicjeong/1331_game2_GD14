@@ -309,8 +309,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _soundClips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 0aecfe609d8c0e4408ad104a01b2c111, type: 3}
+  - {fileID: 8300000, guid: 722820c3c7a4fdc4c9662cdea3c1b30f, type: 3}
+  - {fileID: 8300000, guid: 722820c3c7a4fdc4c9662cdea3c1b30f, type: 3}
+  - {fileID: 8300000, guid: 00b29fefe8e8fa74394ed4aed04ca250, type: 3}
   _musicSource: {fileID: 5623361040791230304}
   _soundSource: {fileID: 2816417027225720382}

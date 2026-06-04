@@ -5,7 +5,7 @@ public class AudioMgr : Singleton<AudioMgr>
 {
     public enum MusicType
     {
-        Start,
+        Menu,
         Gameplay
     }
 
@@ -13,7 +13,8 @@ public class AudioMgr : Singleton<AudioMgr>
     {
         MenuConfirm,
         Throw,
-        Hit
+        Hit,
+        Bad
     }
 
     [SerializeField] private AudioClip[] _musicClips;

@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
     //UI prefabs
     [SerializeField] private GameObject _gameUI;
     [SerializeField] private GameObject _startMenuUI;
+    [SerializeField] private GameObject _completeMenuUI;
 
     //Why did i do this
     [SerializeField] private PlayerControl _player;
@@ -44,14 +45,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    //No idea why I did this here, im fucking tired
-    public void MenuButton(InputAction.CallbackContext context)
-    {
-        _startMenuUI.SetActive(false);
-
-        BeginPlay();
-    }
-
     private void Timer()
     {
         //in case timer is greater than max timer, or lower than 0
@@ -74,8 +67,10 @@ public class GameManager : Singleton<GameManager>
         //sets timer to max timer
         _timer = _maxTimer;
 
-        //Shows game UI
+        //Switches game UI
         _gameUI.SetActive(true);
+        if (_startMenuUI) { _startMenuUI.SetActive(false); }
+        _completeMenuUI.SetActive(false);
 
         //Changes input map to "Player"
         _playerInput.actions.FindActionMap("Menu").Disable();
@@ -93,8 +88,9 @@ public class GameManager : Singleton<GameManager>
         //stops timer
         _timerActive = false;
 
-        //Hides game UI
+        //Switches UI
         _gameUI.SetActive(false);
+        _completeMenuUI.SetActive(true);
 
         //sets a high score
         if (_score >= _highScore) { _highScore = _score; }
