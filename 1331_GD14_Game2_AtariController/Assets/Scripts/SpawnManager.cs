@@ -10,7 +10,8 @@ public class SpawnManager : MonoBehaviour
     //list of spawn locations occupied
     public List<int> _occupiedSpawn;
 
-    //highest amount of customers that can be spawned at a time
+    //highest and lowest amount of customers that can be spawned at a time
+    private int _minCustomersSpawned = 1;
     private int _maxCustomersSpawned = 3;
 
     private void Awake()
@@ -20,7 +21,7 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnCustomer()
     {
-        int customerAmount = Random.Range(1, _maxCustomersSpawned);
+        int customerAmount = Random.Range(_minCustomersSpawned, _maxCustomersSpawned);
         for (int i = 0;  i < customerAmount; i++)
         {
             int randomCustomer = Random.Range(0, _customer.Length);
@@ -29,12 +30,15 @@ public class SpawnManager : MonoBehaviour
             {
                 var customer = Instantiate(_customer[randomCustomer], _customerSpawnLocation[randomSpawn]);
                 customer.GetComponent<CustomerScript>().SetTableNumber(randomSpawn);
-                Debug.Log(randomSpawn);
+                customer.GetComponent<CustomerScript>()._spawnManager = this;
                 _occupiedSpawn.Add(randomSpawn);
             }
         }
-        
-
-
     }
+
+    public void UnoccupySeat(int tableNumber)
+    {
+        _occupiedSpawn.Remove(tableNumber);
+    }
+
 }

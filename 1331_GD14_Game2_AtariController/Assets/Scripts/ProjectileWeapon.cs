@@ -13,8 +13,8 @@ public class ProjectileWeapon : MonoBehaviour
     //gives the foods direction
     public void Fire(Vector3 targetPosition)
     {
-        if (!CanFire) return;
-        _nextFireTime = Time.time + 1 / _fireRate;
+        //if (!CanFire) return;
+        //_nextFireTime = Time.time + 1 / _fireRate;
         var direction = (targetPosition - _muzzle.position).normalized;
         SpawnProjectile(direction);
     }
