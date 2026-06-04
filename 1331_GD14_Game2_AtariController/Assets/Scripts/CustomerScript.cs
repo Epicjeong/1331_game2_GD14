@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CustomerScript : MonoBehaviour
 {
-    //stores spawn manager to set spawn location to unoccupied
-    [SerializeField] private SpawnManager _spawnManager;
+    //spawn manager is gotten from the spawnmanager in scene to get the spawn location of customer
+    public SpawnManager _spawnManager;
 
     //From public enum named "Food"
     public Food _foodState;
@@ -24,13 +24,12 @@ public class CustomerScript : MonoBehaviour
     public int SetTableNumber(int spawnLocation)
     {
         _tableNumber = spawnLocation;
-        Debug.Log(_tableNumber);
         return _tableNumber;
     }
 
     public void Served()
     {
-        _spawnManager._occupiedSpawn.Remove(_tableNumber);
+        _spawnManager.UnoccupySeat(_tableNumber);
         _spawnManager.SpawnCustomer();
         Destroy(gameObject);
     }

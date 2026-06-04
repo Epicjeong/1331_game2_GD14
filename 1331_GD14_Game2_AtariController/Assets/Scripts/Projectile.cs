@@ -33,11 +33,10 @@ public class Projectile : MonoBehaviour
         //SpawnImpact(collision.contacts[0].point);
 
         var customer = other.gameObject.GetComponent<CustomerScript>();
-        Debug.Log(customer);
         if (customer != null)
         {
-        Debug.Log(customer._foodState);
-            if (customer._foodState == _foodType)
+            //commented for testing
+            //if (customer._foodState == _foodType)
             {
                 customer.Served();
                 Destroy(gameObject);
