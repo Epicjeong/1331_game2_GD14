@@ -17,6 +17,19 @@ public class GameUI : MonoBehaviour
     private string _scoreString;
     private string _timerString;
 
+    [Header("Volume: 0 - 1")]
+    [SerializeField] private float _volume = 1;
+
+    private void OnEnable()
+    {
+        AudioMgr.Instance.PlayMusic(AudioMgr.MusicType.Gameplay, _volume);
+    }
+
+    private void OnDisable()
+    {
+        AudioMgr.Instance.StopMusic();
+    }
+
     private void Update()
     {    
         UpdateTime();
