@@ -17,6 +17,7 @@ public class ProjectileWeapon : MonoBehaviour
         //_nextFireTime = Time.time + 1 / _fireRate;
         var direction = (targetPosition - _muzzle.position).normalized;
         SpawnProjectile(direction);
+        AudioMgr.Instance.PlaySound(AudioMgr.SoundType.Throw, 1);
     }
 
     //creates the prefab of the food

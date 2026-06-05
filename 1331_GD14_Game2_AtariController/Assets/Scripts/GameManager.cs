@@ -12,10 +12,12 @@ public class GameManager : Singleton<GameManager>
     public int _score {  get; private set; }
     public int _highScore { get; private set; }
     [SerializeField] private bool _timerActive = false;
+    public Camera mainCamera;
 
     //UI prefabs
     [SerializeField] private GameObject _gameUI;
     [SerializeField] private GameObject _startMenuUI;
+    [SerializeField] private GameObject _completeMenuUI;
 
     //Why did i do this
     [SerializeField] private PlayerControl _player;
@@ -44,14 +46,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    //No idea why I did this here, im fucking tired
-    public void MenuButton(InputAction.CallbackContext context)
-    {
-        _startMenuUI.SetActive(false);
-
-        BeginPlay();
-    }
-
     private void Timer()
     {
         //in case timer is greater than max timer, or lower than 0
@@ -74,7 +68,10 @@ public class GameManager : Singleton<GameManager>
         //sets timer to max timer
         _timer = _maxTimer;
 
-        //Shows game UI
+        //Switches game UI
+        if (_startMenuUI) { _startMenuUI.SetActive(false); }
+        _completeMenuUI.SetActive(false);
+        AudioMgr.Instance.PlaySound(AudioMgr.SoundType.MenuConfirm, 1);
         _gameUI.SetActive(true);
 
         //Changes input map to "Player"
@@ -93,17 +90,18 @@ public class GameManager : Singleton<GameManager>
         //stops timer
         _timerActive = false;
 
-        //Hides game UI
-        _gameUI.SetActive(false);
-
-        //sets a high score
+        //sets a high score (NEEDS TO BE BEFORE UI SWITCH)
         if (_score >= _highScore) { _highScore = _score; }
+
+        //Switches UI
+        _gameUI.SetActive(false);
 
         //Changes input map to "menu"
         _playerInput.actions.FindActionMap("Menu").Enable();
         _playerInput.actions.FindActionMap("Player").Disable();
 
-        //Need logic below to display "Play Again Screen"
+        //Play Again Screen
+        _completeMenuUI.SetActive(true);
     }
 
     public void ScoreAdd()
