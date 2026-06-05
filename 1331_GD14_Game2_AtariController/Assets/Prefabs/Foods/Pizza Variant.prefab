@@ -80,11 +80,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 947946992768428619, guid: 48c4c4a2e4cd74242b74cb123223fe0c, type: 3}
       propertyPath: m_Size.x
-      value: 10.83
+      value: 11.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 947946992768428619, guid: 48c4c4a2e4cd74242b74cb123223fe0c, type: 3}
+      propertyPath: m_Size.y
+      value: 9.52
       objectReference: {fileID: 0}
     - target: {fileID: 947946992768428619, guid: 48c4c4a2e4cd74242b74cb123223fe0c, type: 3}
       propertyPath: m_Size.z
-      value: 2.7
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 947946992768428619, guid: 48c4c4a2e4cd74242b74cb123223fe0c, type: 3}
       propertyPath: m_Center.y
