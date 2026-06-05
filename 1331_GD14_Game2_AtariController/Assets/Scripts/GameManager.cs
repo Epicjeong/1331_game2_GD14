@@ -88,18 +88,18 @@ public class GameManager : Singleton<GameManager>
         //stops timer
         _timerActive = false;
 
+        //sets a high score (NEEDS TO BE BEFORE UI SWITCH)
+        if (_score >= _highScore) { _highScore = _score; }
+
         //Switches UI
         _gameUI.SetActive(false);
-        _completeMenuUI.SetActive(true);
-
-        //sets a high score
-        if (_score >= _highScore) { _highScore = _score; }
 
         //Changes input map to "menu"
         _playerInput.actions.FindActionMap("Menu").Enable();
         _playerInput.actions.FindActionMap("Player").Disable();
 
-        //Need logic below to display "Play Again Screen"
+        //Play Again Screen
+        _completeMenuUI.SetActive(true);
     }
 
     public void ScoreAdd()
