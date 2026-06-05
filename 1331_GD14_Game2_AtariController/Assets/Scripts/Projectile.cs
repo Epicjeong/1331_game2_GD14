@@ -39,9 +39,9 @@ public class Projectile : MonoBehaviour
             if (customer._foodState == _foodType)
             {
                 customer.Served();
-                Destroy(gameObject);
             }
         }
+                Destroy(gameObject);
     }
 
     public void Launch(Vector3 direction, GameObject source)

@@ -4337,7 +4337,7 @@ MonoBehaviour:
   - {fileID: 5191609011257242239, guid: 9f8dec5cd5eb5d04794dbc757285a938, type: 3}
   - {fileID: 4728232979008825296, guid: d56a8ff13c2fcf5478e57ea2781706d4, type: 3}
   _muzzle: {fileID: 561918735}
-  _fireRate: 1
+  _fireRate: 3
 --- !u!1001 &1443735954
 PrefabInstance:
   m_ObjectHideFlags: 0
