@@ -31,7 +31,7 @@ public class CustomerScript : MonoBehaviour
     {
         _spawnManager.UnoccupySeat(_tableNumber);
         _spawnManager.SpawnCustomer();
-        AudioMgr.Instance.PlaySound(AudioMgr.SoundType.Hit, 1);
+        
         Destroy(gameObject);
     }
 }
