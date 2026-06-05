@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class StartMenuUIScript : MonoBehaviour
@@ -12,6 +13,11 @@ public class StartMenuUIScript : MonoBehaviour
     {
         AudioMgr.Instance.PlayMusic(AudioMgr.MusicType.Start, _volume);
         _button.onClick.AddListener(GameManager.Instance.BeginPlay);
+    }
+
+    private void Update()
+    {
+        EventSystem.current.SetSelectedGameObject(_button.gameObject);
     }
 
     private void OnDisable()

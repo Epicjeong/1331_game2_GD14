@@ -28,6 +28,8 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        Cursor.visible = false;
+
         _startMenuUI.SetActive(true);
 
         //Get inputs

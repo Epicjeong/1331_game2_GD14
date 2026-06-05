@@ -29,7 +29,10 @@ public class GameCompleteUI : MonoBehaviour
         _scoreHighText.text = _scoreHigh.ToString();
 
         _button.onClick.AddListener(GameManager.Instance.BeginPlay);
+    }
 
+    private void Update()
+    {
         EventSystem.current.SetSelectedGameObject(_button.gameObject);
     }
 
