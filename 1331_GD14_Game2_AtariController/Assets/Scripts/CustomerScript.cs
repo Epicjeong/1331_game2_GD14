@@ -31,6 +31,7 @@ public class CustomerScript : MonoBehaviour
     {
         _spawnManager.UnoccupySeat(_tableNumber);
         _spawnManager.SpawnCustomer();
+        
         Destroy(gameObject);
     }
 }

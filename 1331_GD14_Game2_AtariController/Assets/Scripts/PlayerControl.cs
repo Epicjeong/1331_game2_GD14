@@ -6,16 +6,20 @@ public class PlayerControl : MonoBehaviour
 {
     //direction to face
     private Vector2 _direction;
-    //[SerializeField] private float smoothTime = 0.05f;
 
     //Projectile aim and throw
     [SerializeField] private GameObject _target;
     [SerializeField] private ProjectileWeapon _weapon;
 
+    //From public enum named "Food"
+    public Food _foodState;
+    //display of next thrown food
+    public ThoughtButtonScript _thoughtBubble;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        FoodState();
     }
 
     // Update is called once per frame
@@ -45,8 +49,15 @@ public class PlayerControl : MonoBehaviour
             if (_weapon.CanFire)
             {
                 _weapon.Fire(_target.transform.position);
+                FoodState();
             }
         }
 
+    }
+
+    private void FoodState()
+    {
+        _foodState = (Food)Random.Range(0, System.Enum.GetValues(typeof(Food)).Length);
+        _thoughtBubble.SetSprite(_foodState);
     }
 }

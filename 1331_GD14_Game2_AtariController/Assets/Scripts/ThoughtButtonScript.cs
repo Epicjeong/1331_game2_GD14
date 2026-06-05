@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class ThoughtButtonScript : MonoBehaviour
 {
+    [SerializeField] private PlayerControl _player;
     [SerializeField] private CustomerScript _customer;
-    private Food _customerFoodType;
+    private Food _foodType;
     
 
     [SerializeField] private Camera _mainCamera;
@@ -16,11 +17,26 @@ public class ThoughtButtonScript : MonoBehaviour
 
     private void Start()
     {
-        //can get the customer's wanted food here or in awake
-        _customerFoodType = _customer._foodState;
+        //for if its the player
+        if (_player != null)
+        {
+            //can get the player's wanted food here or in awake
+            _foodType = _player._foodState;
 
-        SetSprite(_customerFoodType);
-        _mainCamera = GameManager.Instance.mainCamera;
+            SetSprite(_foodType);
+            _mainCamera = GameManager.Instance.mainCamera;
+        }
+        //for if its the player
+        else if (_customer != null)
+        {
+            //can get the customer's wanted food here or in awake
+            _foodType = _customer._foodState;
+
+            SetSprite(_foodType);
+            _mainCamera = GameManager.Instance.mainCamera;
+        }
+
+        
     }
 
     private void Update()
@@ -28,7 +44,7 @@ public class ThoughtButtonScript : MonoBehaviour
         AlignCamera();
     }
 
-    private void SetSprite(Food foodtype)
+    public void SetSprite(Food foodtype)
     {
         //Change the food image
         switch (foodtype)

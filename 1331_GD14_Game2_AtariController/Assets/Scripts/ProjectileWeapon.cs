@@ -4,6 +4,7 @@ using UnityEngine;
 public class ProjectileWeapon : MonoBehaviour
 {
     [SerializeField] private Projectile[] _projectilePrefab;
+    [SerializeField] private PlayerControl _player;
     [SerializeField] private Transform _muzzle;
     [SerializeField] private float _fireRate = 1f;
 
@@ -23,7 +24,7 @@ public class ProjectileWeapon : MonoBehaviour
     //creates the prefab of the food
     public void SpawnProjectile(Vector3 direction)
     {
-        int foodType = Random.Range(0, _projectilePrefab.Length);
+        int foodType = (int)_player._foodState;
 
         var projectile = Instantiate(_projectilePrefab[foodType], _muzzle.position, Quaternion.LookRotation(direction));
         projectile.Launch(direction, gameObject);
