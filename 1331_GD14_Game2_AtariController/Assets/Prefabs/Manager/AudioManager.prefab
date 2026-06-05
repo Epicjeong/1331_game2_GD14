@@ -306,11 +306,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioMgr
   _willNotDestroyOnLoad: 0
   _musicClips:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 4b4d001c8f837d542b55450c8df61fa1, type: 3}
+  - {fileID: 8300000, guid: ec4a3aef6968d98428cdffb33da12489, type: 3}
+  - {fileID: 8300000, guid: e91cb1b2972260a439aed04159e0ba91, type: 3}
   _soundClips:
   - {fileID: 8300000, guid: 0aecfe609d8c0e4408ad104a01b2c111, type: 3}
-  - {fileID: 8300000, guid: 722820c3c7a4fdc4c9662cdea3c1b30f, type: 3}
+  - {fileID: 8300000, guid: e8a0e83e8bc114743aaa6b6a1396c51a, type: 3}
   - {fileID: 8300000, guid: 722820c3c7a4fdc4c9662cdea3c1b30f, type: 3}
   - {fileID: 8300000, guid: 00b29fefe8e8fa74394ed4aed04ca250, type: 3}
   _musicSource: {fileID: 5623361040791230304}

@@ -10,7 +10,7 @@ public class StartMenuUIScript : MonoBehaviour
 
     private void OnEnable()
     {
-        AudioMgr.Instance.PlayMusic(AudioMgr.MusicType.Menu, _volume);
+        AudioMgr.Instance.PlayMusic(AudioMgr.MusicType.Start, _volume);
         _button.onClick.AddListener(GameManager.Instance.BeginPlay);
     }
 

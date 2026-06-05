@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     public int _score {  get; private set; }
     public int _highScore { get; private set; }
     [SerializeField] private bool _timerActive = false;
+    public Camera mainCamera;
 
     //UI prefabs
     [SerializeField] private GameObject _gameUI;
@@ -68,9 +69,10 @@ public class GameManager : Singleton<GameManager>
         _timer = _maxTimer;
 
         //Switches game UI
-        _gameUI.SetActive(true);
         if (_startMenuUI) { _startMenuUI.SetActive(false); }
         _completeMenuUI.SetActive(false);
+        AudioMgr.Instance.PlaySound(AudioMgr.SoundType.MenuConfirm, 1);
+        _gameUI.SetActive(true);
 
         //Changes input map to "Player"
         _playerInput.actions.FindActionMap("Menu").Disable();

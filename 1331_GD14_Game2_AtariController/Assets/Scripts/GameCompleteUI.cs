@@ -20,7 +20,7 @@ public class GameCompleteUI : MonoBehaviour
 
     private void OnEnable()
     {
-        AudioMgr.Instance.PlayMusic(AudioMgr.MusicType.Menu, _volume);
+        AudioMgr.Instance.PlayMusic(AudioMgr.MusicType.Complete, _volume);
 
         _scoreCurrent = GameManager.Instance._score;
         _scoreHigh = GameManager.Instance._highScore;

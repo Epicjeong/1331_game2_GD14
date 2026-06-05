@@ -5,8 +5,9 @@ public class AudioMgr : Singleton<AudioMgr>
 {
     public enum MusicType
     {
-        Menu,
-        Gameplay
+        Start,
+        Gameplay,
+        Complete
     }
 
     public enum SoundType

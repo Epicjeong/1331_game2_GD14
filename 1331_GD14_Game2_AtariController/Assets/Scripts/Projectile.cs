@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         if (customer != null)
         {
             //commented for testing
-            //if (customer._foodState == _foodType)
+            if (customer._foodState == _foodType)
             {
                 customer.Served();
                 Destroy(gameObject);

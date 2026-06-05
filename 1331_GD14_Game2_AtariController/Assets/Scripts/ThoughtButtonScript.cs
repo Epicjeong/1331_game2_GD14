@@ -3,11 +3,9 @@ using UnityEngine.UI;
 
 public class ThoughtButtonScript : MonoBehaviour
 {
-    //!!!
-    //this part will need work once we can have the customers generate a food they want
     [SerializeField] private CustomerScript _customer;
-    [SerializeField] private Food _customerFoodType;
-    //!!!
+    private Food _customerFoodType;
+    
 
     [SerializeField] private Camera _mainCamera;
 
@@ -18,9 +16,11 @@ public class ThoughtButtonScript : MonoBehaviour
 
     private void Start()
     {
-        //can get the customer's wanted food here or in awake       
+        //can get the customer's wanted food here or in awake
+        _customerFoodType = _customer._foodState;
 
         SetSprite(_customerFoodType);
+        _mainCamera = GameManager.Instance.mainCamera;
     }
 
     private void Update()
