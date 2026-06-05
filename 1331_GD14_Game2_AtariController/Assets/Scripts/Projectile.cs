@@ -39,7 +39,12 @@ public class Projectile : MonoBehaviour
             if (customer._foodState == _foodType)
             {
                 customer.Served();
+                AudioMgr.Instance.PlaySound(AudioMgr.SoundType.Hit, 1);
                 Destroy(gameObject);
+            }
+            else
+            {
+                AudioMgr.Instance.PlaySound(AudioMgr.SoundType.Bad, 1);
             }
         }
     }
